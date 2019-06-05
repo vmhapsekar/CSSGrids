@@ -1,0 +1,293 @@
+
+/* Common styles used across all the examples Starts */
+
+body {
+  margin: 40px;
+  font-family: sans-serif;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.sidebar2 {
+    grid-area: sidebar2;
+}
+
+.content {
+  grid-area: content;
+  background-color: white !important;
+  color: #444 !important;
+  border: 1px solid #444 !important;
+}
+
+.header {
+  grid-area: header;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.wrapper {
+  background-color: white;
+  color: #fff;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 1em;
+  grid-auto-rows: 1fr 12fr;
+  grid-template-areas:
+   "header"
+   "content"
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 150%;
+}
+
+.header
+.footer {
+  background-color: #999;
+  text-align: center;
+}
+
+.sidebar2 {
+  background-color: #ccc;
+  color: #444;
+}
+
+/* Common styles used across all the examples Ends */
+
+/* Grid Image */
+
+.img-wrapper {
+  width: 200px;
+  display: grid;
+  /* Grid divided in 3 columns and 2 rows */
+  grid-template-columns: 1fr 1fr 1fr; /* fr is a fraction of the grid */
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  color: #444;
+  margin: 0 auto;
+}
+
+.img-wrapper .box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 150%;
+}
+
+
+/* Example 1 styles starts*/
+
+
+.example1-wrapper {
+  display: grid;
+  grid-gap: 1em;
+  margin: 0 auto;
+  grid-template-areas:
+   "header"
+   "sidebar"
+   "content"
+   "sidebar2"
+   "footer"
+}
+
+.example1-wrapper .box {
+    font-size: 100%;
+}
+
+
+/* Making example 1 responsive to different display sizes */
+@media only screen and (min-width: 800px)  {
+  .example1-wrapper {
+      grid-template-columns: 20% auto;
+      grid-template-areas:        /* Placing grid areas for small devices  */
+        "header   header"
+        "sidebar  content"
+        "sidebar2 sidebar2"
+        "footer   footer";
+    }
+}
+
+@media only screen and (min-width: 900px)   {
+    .example1-wrapper {
+        grid-gap: 20px;
+        grid-template-columns: 120px auto 120px;
+        grid-template-areas:      /* Placing grid areas for rest of the devices  */
+          "header  header  header"
+          "sidebar content sidebar2"
+          "footer  footer  footer";
+        max-width: 600px;
+    }
+}
+
+/* Example 1 styles ends*/
+
+
+/* Example 2 styles starts*/
+
+.example2-wrapper {
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(6, 100px); /* Placing the box in autoflow of 6 columns*/
+  grid-gap: 10px;
+  margin: 0 auto;
+}
+
+.example2-wrapper .box:nth-child(even) {
+  background-color: #ccc;
+  color: #000;
+}
+
+.example2-wrapper .box2 {
+  grid-column: 3 / 6;         /* Spanning the box2 from 3rd column to 6th column */
+  grid-row: 2 / 3;            /* Placing the box2 in second row and 3rd column */
+  outline: 2px solid blue;
+  z-index: 10;
+}
+
+/* Example 2 styles ends*/
+
+
+/* Example 3 styles starts */
+
+.example3-wrapper {
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, [col] 150px ) ;
+  grid-template-rows: repeat(2, [row] auto  );
+  background-color: #fff;
+  color: #444;
+  justify-content: center;
+}
+
+.example3-wrapper .box .box {   /* Nested Grid */
+  background-color: #ccc;
+  color: #444;
+}
+
+/* Placing each grid as required */
+
+.example3-wrapper .a {
+  grid-column: col / span 2;
+  grid-row: row;
+}
+
+.example3-wrapper .b {
+  grid-column: col 3 / span 2;
+  grid-row: row;
+}
+
+.example3-wrapper .c {
+  grid-column: col / span 2;
+  grid-row: row 2;
+}
+
+.example3-wrapper .d{
+  grid-column: col 3 / span 2;
+  grid-row: row 2;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.example3-wrapper .e {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+.example3-wrapper .f {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.example3-wrapper .g {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Example 3 style ends */
+
+
+/* Example 4 style starts */
+
+.example4-wrapper {
+  display: grid;
+  grid-gap: 10px;
+  /* Grid that contains as many 200 pixel column tracks.
+  In the minmax() function the first value is the minimum size of tracks, the second is the maximum.
+  By using 1fr as the maximum value the space is equally distributed. */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  background-color: #fff;
+  color: #444;
+  justify-content: center;
+}
+
+.example4-wrapper .a {
+  grid-column: auto / span 2;
+}
+
+.example4-wrapper .g {
+  grid-column: auto / span 2;
+  grid-row: auto / span 2;
+}
+
+/* Example 4 style ends */
+
+/* Example 5 style starts */
+
+.example5-wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(5, [col] 100px); /* Creating 5 cols of 100px each*/
+  grid-template-rows: repeat(3, [row] auto);    /* Creating 3 rows with height auto*/
+  background-color: #fff;
+  color: #444;
+  justify-content: center;
+}
+
+.example5-wrapper .a {
+  grid-column: col / span  2;
+  grid-row: row ;
+}
+.example5-wrapper .b {
+  grid-column: col 3 / span  3 ;
+  grid-row: row ;
+}
+.example5-wrapper .c {
+  grid-column: col ;
+  grid-row: row 2 ;
+}
+
+/* we will overlap box d and f starting from 3rd column to 6th column */
+/* we can control which box should overlap which one using z-index */
+
+.example5-wrapper .d {
+  grid-column: col 2 / span  3 ;
+  grid-row: row 2 ;
+}
+
+.example5-wrapper .e {
+  grid-column: col / span  5;
+  grid-row: row 3;
+}
+
+.example5-wrapper .f {
+  grid-column: col 3 / span 3;
+  grid-row: row 2  ;
+  background-color: blue;
+  z-index: 20;
+  opacity: 0.6;
+}
+
+/* Example 5 style ends */

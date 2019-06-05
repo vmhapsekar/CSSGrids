@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>CSS Grid Tutorial</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="box header"><h1 align="center">CSS Grids</h1></div>
+    <div class="box content">
+      <h1 align="center">Introduction</h1>
+      <div class="img-wrapper">
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+      </div>
+      <p>CSS Grid Layout is the most powerful layout system available in CSS. It is a 2-dimensional system, meaning it can handle both columns and rows, unlike flexbox which is largely a 1-dimensional system. It is supported by all major browsers in the market.</p>
+      <p>Below are the five basic examples of how to use CSS Grids, but there's a lot more you can do with them.</p>
+      <h2>Examples</h2>
+      <ul>
+        <li>
+          <h3>Example 1 - Defining grid areas with media query</h3>
+
+          <!-- Use Case: designing a responsive page structure -->
+
+          <!-- Example 1 code starts -->
+
+          <div class="example1-wrapper">
+            <div class="box header">Header</div>
+            <div class="box sidebar">Sidebar 1</div>
+            <div class="box sidebar2">Sidebar 2</div>
+            <div class="box content">Content
+              <br>You can place your content here.
+            </div>
+            <div class="box footer">Footer</div>
+          </div>
+
+          <!-- Example 1 code ends -->
+
+          <p>In this example the grid is flexible to adapt to different display sizes. When the screen is small to accommodate two sidebars it pushes the sidebar2 below the container to occupy the whole space. You can resize the browser and see the difference. Here you are defining the grid areas and placing them differently for different sizes.</p>
+          <b>Use Case:</b>&nbsp;<span>To create responsive web pages.</span>
+
+        </li>
+
+        <li>
+          <h3>Example 2 - Placing and Spanning</h3>
+
+          <!-- Use Case: Photo Gallery, Widgets, Restructuring the webpage dynamically using media queries -->
+
+          <!-- Example 2 code starts -->
+
+          <div class="example2-wrapper">
+            <div class="box">1</div>
+            <div class="box box2">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+            <div class="box">6</div>
+            <div class="box">7</div>
+            <div class="box">8</div>
+            <div class="box">9</div>
+            <div class="box">10</div>
+            <div class="box">11</div>
+            <div class="box">12</div>
+          </div>
+          <!-- Example 2 code ends -->
+
+          <p>In this example the grid is automatically placing the boxes in order as we have divided the grid in 6 columns equally. Then we are placing the box 2 in second row and third column from spanning accross three columns. We can achieve that easily using <code>grid-column</code> and <code>grid-row</code> on box2.</p>
+          <b>Use Case:</b>&nbsp;<span>When you want to move different section on a webpage dynamically. Example: Photo Gallery</span>
+
+        </li>
+
+        <li>
+          <h3>Example 3 - Nested Grids</h3>
+
+          <!-- Use Case: Used in almost all the scenarios -->
+
+          <!-- Example 3 code starts -->
+
+          <div class="example3-wrapper">
+            <div class="box a">A</div>
+            <div class="box b">B</div>
+            <div class="box c">
+              <div class="box e">E</div>
+              <div class="box f">F</div>
+              <div class="box g">G</div>
+            </div>
+            <div class="box d">
+              <div class="box e">E</div>
+              <div class="box f">F</div>
+              <div class="box g">G</div>
+            </div>
+          </div>
+
+          <!-- Example 3 code ends -->
+
+          <p>A simple example of nesting one grid inside another. Any Grid Area can become a grid itself, by setting <code>display:grid</code> and then defining the rows and columns.</p>
+          <b>Use Case:</b>&nbsp;<span>Used in almost all the interactive and static webpages</span>
+
+        </li>
+
+        <li>
+          <h3>Example 4 - MinMax in Grids</h3>
+
+          <!-- Use Case: E-commerce websites -->
+
+          <!-- Example 4 code starts -->
+
+          <div class="example4-wrapper">
+            <div class="box a">A</div>
+            <div class="box b">B</div>
+            <div class="box c">C</div>
+            <div class="box d">D</div>
+            <div class="box e">E</div>
+            <div class="box f">F</div>
+            <div class="box g">G</div>
+            <div class="box h">H</div>
+            <div class="box i">I</div>
+            <div class="box j">J</div>
+            <div class="box k">K</div>
+            <div class="box l">L</div>
+            <div class="box m">M</div>
+          </div>
+
+          <!-- Example 4 code ends -->
+
+          <p>If we want to fit maximum number of boxes in a fixed size grid we can use <code>minmax()</code> function of grid. If you span any of the boxes in the grid, then the grid will automatically adapt to accommodate as many boxes as it can.</p>
+          <b>Use Case:</b>&nbsp;<span>E-commerce websites where we display products.</span>
+
+        </li>
+
+        <li>
+          <h3>Example 5 - Overlapping Grids</h3>
+
+          <!-- Use Case: Online Tabloids and Magazines -->
+
+          <!-- Example 5 code starts -->
+
+          <div class="example5-wrapper">
+            <div class="box a">A</div>
+            <div class="box b">B</div>
+            <div class="box c">C</div>
+            <div class="box d">D</div>
+            <div class="box e">E</div>
+            <div class="box f">F</div>
+          </div>
+
+          <!-- Example 5 code ends -->
+
+          <p>Multiple items can be placed in the same grid cell. We can position grid items in a way that they overlap each other. Without specifying the z-index explicitly, by default, grid items that appear later in the source order will be rendered on the top</p>
+          <b>Use Case:</b>&nbsp;<span>Online Tabloids and Magazines</span>
+
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  </body>
+  </html>
